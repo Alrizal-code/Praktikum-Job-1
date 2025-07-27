@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <h1>Dashboard Monitoring</h1>
+</header>
+<section class="dashboard">
+    <div class="sensor">
+        <h3>Monitoring Sensor</h3>
+        <p>Sensor Suhu: <span id="suhu">25°C</span></p>
+        <p>Sensor Kelembaban: <span id="humidity">60%</span></p>
+        <p>Sensor Tekanan: <span id="pressure">1012 hPa</span></p>
+    </div>
+    <div class="controls">
+        <h3>Kendali Aktuator</h3>
+        <button onclick="control('Aktuator 1')">Aktuator 1</button>
+        <button onclick="control('Aktuator 2')">Aktuator 2</button>
+        <button onclick="control('Aktuator 3')">Aktuator 3</button>
+    </div>
+    <div class="logs">
+        <h3>Log Aktifitas</h3>
+        <ul id="logList"></ul>
+    </div>
+</section>
+<script>
+    function control(name) {
+        const log = document.getElementById("logList");
+        const item = document.createElement("li");
+        item.textContent = `${name} dikendalikan pada ${new Date().toLocaleTimeString()}`;
+        log.appendChild(item);
+    }
+</script>
+</body>
+</html>
